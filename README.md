@@ -1,7 +1,7 @@
 # MemBrain: Protecting Brain Health Earlier
 
 [![Future Health Innovation Challenge](https://img.shields.io/badge/Challenge-Protecting_Brain_Health_Earlier-0a271c?style=for-the-badge&logo=shield)](https://github.com/teamcerebrospark/membrain)
-[![Sahatna Ready](https://img.shields.io/badge/Ecosystem-Sahatna_%7C_Malaffi_Ready-006241?style=for-the-badge)](#-ecosystem-integration-sahatna-صحتنا--malaffi-compatibility)
+[![Ecosystem Vision](https://img.shields.io/badge/Ecosystem%20Vision-Sahatna_%7C_Malaffi_Aligned-006241?style=for-the-badge)](#-looking-forward-sahatna-صحتنا--malaffi-ecosystem-vision)
 [![Tests Passing](https://img.shields.io/badge/pytest-162%2F162%20passed-2e7d32?style=for-the-badge&logo=pytest)](https://github.com/teamcerebrospark/membrain)
 [![Static Build](https://img.shields.io/badge/Next.js-29%2F29%20pages-black?style=for-the-badge&logo=next.js)](https://github.com/teamcerebrospark/membrain)
 [![Parity](https://img.shields.io/badge/Engine%20Parity-478%2F478%20(100%25)-blue?style=for-the-badge)](https://github.com/teamcerebrospark/membrain)
@@ -16,7 +16,7 @@
 
 ## 📌 Executive Summary
 
-**MemBrain** is a culturally calibrated, voice-first cognitive and functional monitoring platform designed for adults aged 50–75 in Abu Dhabi and the UAE. Operating across web, mobile (Android APK / iOS Coming Soon), and chat channels—and architected for native integration into Abu Dhabi's **Sahatna (صحتنا)** digital health super-app—MemBrain enables early detection of neurocognitive decline through short, 6-minute spoken check-ins in Emirati and Gulf Arabic dialects as well as English.
+**MemBrain** is a culturally calibrated, voice-first cognitive and functional monitoring platform designed for adults aged 50–75 in Abu Dhabi and the UAE. Operating across web, mobile (Android APK / iOS Coming Soon), and chat channels—with a forward-looking design tailored for future integration into Abu Dhabi's **Sahatna (صحتنا)** digital health super-app—MemBrain enables early detection of neurocognitive decline through short, 6-minute spoken check-ins in Emirati and Gulf Arabic dialects as well as English.
 
 Rather than relying on one-off testing, MemBrain builds a **longitudinal personal baseline**, separates genuine cognitive change from normal day-to-day variance using practice-adjusted Reliable Change Index (RCI) statistics, and enriches assessments with metabolic, lifestyle, sleep, informant, and consent-gated genomic context.
 
@@ -99,28 +99,31 @@ flowchart TD
 
 ---
 
-## 🇦🇪 Ecosystem Integration: Sahatna (صحتنا) & Malaffi Compatibility
+## 🇦🇪 Looking Forward: Sahatna (صحتنا) & Malaffi Ecosystem Vision
 
-MemBrain is architected not as an isolated point solution, but as an **embeddable cognitive intelligence and screening module for Sahatna (صحتنا)**—Abu Dhabi’s unified AI-powered digital health super-app launched by the Department of Health (DoH) and powered by Malaffi.
+> [!NOTE]
+> **Forward-Looking Strategic Vision:** While direct production integration with **Sahatna** and **Malaffi** represents a future phase planned for pilot deployment with the Department of Health (DoH), MemBrain’s underlying data schemas, FHIR R4 interoperability layer, and identity models were engineered from day one to align natively with Abu Dhabi’s unified digital health strategy.
+
+As Abu Dhabi transitions from reactive healthcare to predictive population wellness, MemBrain is envisioned not as an isolated third-party application, but as a future **plug-and-play cognitive screening micro-app for Sahatna (صحتنا)**—Abu Dhabi’s AI-driven health super-app powered by Malaffi.
 
 ```mermaid
 flowchart LR
-    A["Sahatna Super-App<br>(UAE Pass Authenticated)"] -->|"Annual Brain Health Prompt"| B["MemBrain Voice Check-In<br>(6-min Spoken Micro-App)"]
-    B -->|"FHIR R4 Bundle"| C["Malaffi HIE<br>(Centralized Health Record)"]
-    C -->|"EHR Ingestion (Epic / Cerner)"| D["Clinician Dashboard<br>(CCAD, Tawam, SEHA, M42)"]
-    B -->|"At-Risk Referral"| E["Sahatna Booking Engine<br>(Thiqa / Enaya Specialists)"]
-    F["Emirati Genome Program (EGP)"] -->|"APOE Status"| B
+    A["Sahatna Super-App<br>(Planned UAE Pass SSO)"] -.->|"Future Brain Health Prompt"| B["MemBrain Voice Check-In<br>(6-min Spoken Micro-App)"]
+    B -.->|"Target FHIR R4 Pipeline"| C["Malaffi HIE<br>(Centralized Health Record)"]
+    C -.->|"EHR Ingestion (Epic / Cerner)"| D["Clinician Dashboard<br>(CCAD, Tawam, SEHA, M42)"]
+    B -.->|"At-Risk Referral Handoff"| E["Sahatna Booking Engine<br>(Thiqa / Enaya Specialists)"]
+    F["Emirati Genome Program (EGP)"] -.->|"Consent-Gated APOE Import"| B
 ```
 
-| Sahatna Integration Pillar | Technical & Clinical Realization in MemBrain |
+| Future Integration Pillar | Planned Roadmap & Compatibility Target |
 | :--- | :--- |
-| **Annual Brain Health Pathway** | Designed to embed as a lightweight micro-app/SDK within Sahatna, prompting eligible citizens and residents aged 50–75 for an annual 6-minute spoken check-in in Emirati Arabic or English. |
-| **Direct Malaffi Data Pipeline** | Outputs native **HL7 FHIR R4B** resources (`membrain/fhir.py`): `Patient`, `Observation`, `Consent`, `RiskAssessment`, and `DocumentReference` compatible with Malaffi, making longitudinal cognitive trajectories instantly accessible to physicians across SEHA, CCAD, M42, and Burjeel. |
-| **UAE Pass & Identity Vault** | Pre-architected for single sign-on (SSO) with **UAE Pass**. Emirates IDs (`784-XXXX-XXXXXXX-X`) are cryptographically isolated in MemBrain's Identity Vault, allowing analytics and AI models to run exclusively on pseudonymous tokens (`MB-XXXX`). |
-| **Emirati Genome Program (EGP) Alignment** | Connects to Sahatna's genomic wellness capabilities via MemBrain's **consent-gated APOE genetic context module** (`membrain/genomics.py`), importing pre-existing EGP data to personalize prevention pathways without redundant testing. |
-| **Closed-Loop Scheduling & Referral** | Direct interface with Sahatna’s provider directory across 26 UAE clinics/hospitals (Cleveland Clinic Abu Dhabi, Tawam, Rashid Hospital, etc.), allowing at-risk users to convert an alert directly into an approved specialist consultation under **Thiqa**, **Saada**, or **Enaya**. |
-| **Family & Caregiver Support (Tawawoon)** | Leverages Sahatna’s multi-generational family health management through MemBrain’s **Informant Survey**, enabling adult children or household helpers to report functional changes noticed in elderly family members. |
-| **In-Country Sovereignty & Compliance** | Zero data egress on-device transcript scoring combined with cloud hosting in **Azure UAE North (Abu Dhabi / Dubai)** satisfies all DoH standards and UAE Federal Decree-Law No. 45/2021 regarding health data protection. |
+| **Annual Brain Health Pathway** | *Vision:* Embed as an accessible micro-app/SDK within Sahatna, enabling Abu Dhabi citizens and residents aged 50–75 to complete an annual 6-minute spoken check-in directly within the national health portal. |
+| **Malaffi HIE Ingestion** | *Vision:* Transmit standardized **HL7 FHIR R4B** bundles (`Patient`, `Observation`, `Consent`, `RiskAssessment`, `DocumentReference`) directly into Malaffi, ensuring cognitive delta scores and baseline histories populate physicians' hospital EHRs across SEHA, CCAD, M42, and Burjeel. |
+| **UAE Pass Authentication** | *Vision:* Adopt **UAE Pass** as the primary authentication mechanism for Sahatna users, with Emirates ID credentials (`784-XXXX-XXXXXXX-X`) managed securely within MemBrain’s cryptographic Identity Vault to preserve pseudonymous data governance. |
+| **Emirati Genome Program (EGP) Integration** | *Vision:* Interconnect with Sahatna’s genomic health initiatives via MemBrain’s **consent-gated APOE genetic module** (`membrain/genomics.py`), importing pre-existing EGP data to personalize prevention plans without duplicate blood draws or sequencing. |
+| **Seamless Sahatna Clinic Booking** | *Vision:* Interface with Sahatna’s regional provider directory across 26 UAE clinics/hospitals (CCAD, Tawam, Rashid Hospital, etc.), allowing at-risk individuals to convert a clinical triage alert into an approved in-app booking under **Thiqa**, **Saada**, or **Enaya**. |
+| **Family & Caregiver Linkage (Tawawoon)** | *Vision:* Integrate with Sahatna’s multi-generational family health management features through MemBrain’s **Informant Survey**, allowing family members to record observed changes in elderly relatives. |
+| **In-Country Sovereignty & Compliance** | *Architecture Ready:* On-device zero-egress transcript processing paired with container hosting in **Azure UAE North (Abu Dhabi / Dubai)** fulfills all DoH digital health policies and UAE Federal Decree-Law No. 45/2021 regarding health data residency. |
 
 ---
 
@@ -144,9 +147,9 @@ MemBrain is designed to expand continuously. The following upcoming features on 
 * **Challenge Fit:** *Genomic Risk Integration with Pre-Test Counselling Safeguards.*
 * **What it adds:** Secure FHIR R4 API connection to the Emirati Genome Program to import validated **APOE** genotype status (`e3/e3`, `e2/e3`, `e3/e4`, `e4/e4`). Adhering strictly to clinical genetics standards, genomic status is never displayed directly to the patient; it is routed to certified genetic counsellors and neurologists to inform personalized prevention protocols.
 
-### 5. Multi-Hospital Regional Health Information Exchange (*Coming Soon*)
+### 5. Multi-Hospital Regional Health Information Exchange (*Future Phase*)
 * **Challenge Fit:** *Cross-Provider Continuity & Zero Drop-Off (Malaffi / Nabidh / Riayati).*
-* **What it adds:** Direct integration with Abu Dhabi’s **Malaffi** Health Information Exchange. When an at-risk senior moves from a primary healthcare center (AHS) to a tertiary hospital (Cleveland Clinic Abu Dhabi), their longitudinal cognitive baseline and MoCA trajectories transfer securely without repeating stressful redundant tests.
+* **What it adds:** Planned gateway integration with Abu Dhabi’s **Malaffi** Health Information Exchange as well as Dubai's Nabidh and the national Riayati platforms. In future deployments, when an at-risk senior moves from a primary healthcare center (AHS) to a tertiary hospital (such as Cleveland Clinic Abu Dhabi), their longitudinal cognitive baseline and MoCA trajectories will transfer seamlessly without repeating stressful, redundant tests.
 
 ---
 
