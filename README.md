@@ -96,6 +96,7 @@ flowchart TD
 | **Prevention Plan Generator** | `membrain/prevention.py` | Evidence-based lifestyle and cardiometabolic recommendations grounded in the Lancet Commission 2024 dementia prevention guidelines. |
 | **Telegram Bot** | `api/telegram.py` | Conversational bot for raising concerns, voice note intake, and reading back extracted clinical facts with evidence quotes. |
 | **Android Application** | `mobile/`, `site/components/app/` | Offline-capable Android APK built with Capacitor, featuring standalone check-ins, local SQLite cache, and clinic map. |
+| **MyLife Profile Preview** | `site/components/mylife/`, `/mylife/` | Interactive preview of the person-centred care profile and hospital quick care card for acute care teams (full co-authoring launching in upcoming cohort). |
 
 ---
 
@@ -147,7 +148,11 @@ MemBrain is designed to expand continuously. The following upcoming features on 
 * **Challenge Fit:** *Genomic Risk Integration with Pre-Test Counselling Safeguards.*
 * **What it adds:** Secure FHIR R4 API connection to the Emirati Genome Program to import validated **APOE** genotype status (`e3/e3`, `e2/e3`, `e3/e4`, `e4/e4`). Adhering strictly to clinical genetics standards, genomic status is never displayed directly to the patient; it is routed to certified genetic counsellors and neurologists to inform personalized prevention protocols.
 
-### 5. Multi-Hospital Regional Health Information Exchange (*Future Phase*)
+### 5. MyLife Profile & Hospital Quick Care Card (*Coming Soon*)
+* **Challenge Fit:** *Person-Centred Functional Care, Delirium Prevention & Humane Care Transitions.*
+* **What it adds:** While a live preview is available at [`/mylife/`](https://teamcerebrospark.github.io/membrain/mylife/) and within the Clinician Workspace case tab, full digital co-authoring and EHR synchronization launch in the upcoming cohort. MyLife creates a person-centred life narrative and portable "Quick Care Card": preferred name and dialect, communication pace, daily calming routines, prayer habits, and triggers of distress. When an older adult is admitted to a hospital or clinic, acute environmental changes often precipitate delirium or rapid functional decompensation. The MyLife card gives ward nurses and emergency teams instant non-pharmacological grounding anchors, protecting brain health during acute care transitions.
+
+### 6. Multi-Hospital Regional Health Information Exchange (*Future Phase*)
 * **Challenge Fit:** *Cross-Provider Continuity & Zero Drop-Off (Malaffi / Nabidh / Riayati).*
 * **What it adds:** Planned gateway integration with Abu Dhabi’s **Malaffi** Health Information Exchange as well as Dubai's Nabidh and the national Riayati platforms. In future deployments, when an at-risk senior moves from a primary healthcare center (AHS) to a tertiary hospital (such as Cleveland Clinic Abu Dhabi), their longitudinal cognitive baseline and MoCA trajectories will transfer seamlessly without repeating stressful, redundant tests.
 
